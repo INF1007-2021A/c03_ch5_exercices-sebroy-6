@@ -5,44 +5,40 @@
 from typing import List
 
 def convert_to_absolute(number: float) -> float:
-    if number < 0:
-        number *= -1
-    return number
+    return number if number > 0 else number * -1  # Connaitre cette syntaxe pour l'examen (peut-être demandé)
 
 
 def use_prefixes() -> List[str]:
     prefixes, suffixe = 'JKLMNOPQ', 'ack'
     List = []
+
     for letter in prefixes:
         List.append(letter + suffixe)
+
     return List
 
 
 def prime_integer_summation() -> int:
-    sum = 3    # Pourquoi est-ce que ma loop considère pas 3 comme un nombre premier?
-    is_prime = True
-    number = 1
-    nb_premiers = 1
-    while nb_premiers != 100:
-        number += 1
-        for i in range(2, number):
-            if number % i == 0:
-                is_prime = False
-                break
-        if is_prime:
-            sum += number
-            nb_premiers += 1
-            is_prime = False
-        else:
-            is_prime = True
+    sum = 0
+    primes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53,
+              59, 61, 67, 71, 73, 79, 83, 89, 97, 101, 103, 107, 109, 113, 127, 131,
+              137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199,
+              211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281,
+              283, 293, 307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373,
+              379, 383, 389, 397, 401, 409, 419, 421, 431, 433, 439, 443, 449, 457,
+              461, 463, 467, 479, 487, 491, 499, 503, 509, 521, 523, 541]
 
+    for number in primes:
+        sum += number
     return sum
 
 
 def factorial(number: int) -> int:
     result = 1
+
     for i in range(2, number + 1):
         result *= i
+
     return result
 
 
