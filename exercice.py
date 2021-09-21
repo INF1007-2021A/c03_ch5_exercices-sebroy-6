@@ -19,24 +19,24 @@ def use_prefixes() -> List[str]:
 
 
 def prime_integer_summation() -> int:
-    Sum = 3    # Pourquoi est-ce que ma loop considère pas 3 comme un nombre premier?
+    sum = 3    # Pourquoi est-ce que ma loop considère pas 3 comme un nombre premier?
     is_prime = True
     number = 1
     nb_premiers = 1
-    while nb_premiers !=100:
+    while nb_premiers != 100:
         number += 1
         for i in range(2, number):
-            if number % i == 0 :
+            if number % i == 0:
                 is_prime = False
                 break
-        if is_prime :
-            Sum += number
+        if is_prime:
+            sum += number
             nb_premiers += 1
             is_prime = False
-        else :
+        else:
             is_prime = True
 
-    return Sum
+    return sum
 
 
 def factorial(number: int) -> int:
@@ -47,16 +47,16 @@ def factorial(number: int) -> int:
 
 
 def use_continue() -> None:
-    for number in range(1,11):
+    for number in range(1, 11):
         if number == 5:
             continue
         print(number)
 
 
 def verify_ages(groups: List[List[int]]) -> List[bool]:
-    Acceptance_list = []
+    acceptance_list = []
     is_50years = False
-    isMore_70_years = False
+    is_more_70years = False
 
     for group in groups:
         is_accepted = True  # reset bool values for the next group in the first dimension list
@@ -75,11 +75,11 @@ def verify_ages(groups: List[List[int]]) -> List[bool]:
                 elif member_age == 50:  # condition 3
                     is_50years = True
                 elif member_age > 70:
-                    isMore_70_years = True
+                    is_more_70years = True
 
-            if is_50years and isMore_70_years:
+            if is_50years and is_more_70years:
                 is_accepted = False
-                is_50years, isMore_70_years = False, False
+                is_50years, is_more_70years = False, False
 
         if good_length:
             for member_age in group:
@@ -87,11 +87,11 @@ def verify_ages(groups: List[List[int]]) -> List[bool]:
                     is_accepted = True
 
         if is_accepted:  # Here is where we add to the Acceptance_list the decision of accepted or not
-            Acceptance_list.append(True)
+            acceptance_list.append(True)
         if is_accepted != True:
-            Acceptance_list.append(False)
+            acceptance_list.append(False)
 
-    return Acceptance_list
+    return acceptance_list
 
 
 def main() -> None:
